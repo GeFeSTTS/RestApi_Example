@@ -1,0 +1,31 @@
+.usersContainer {
+    margin: 2%;
+}
+
+.tableUsers table {
+    margin: auto;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.tableUsers th, .tableUsers td:first-child {
+    background: #AFCDE7;
+    color: white;
+    padding: 10px 20px;
+}
+
+.tableUsers th, .tableUsers td {
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: white;
+}
+
+.tableUsers td {
+    background: #D8E6F3;
+}
+
+.tableUsers th:first-child, .tableUsers td:first-child {
+    text-align: left;
+}
