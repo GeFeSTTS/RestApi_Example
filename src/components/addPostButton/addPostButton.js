@@ -1,13 +1,15 @@
 import React from 'react';
 
 class AddPostsButton extends React.Component {
-    state = {
-        username: null,
-        title: null,
-        body: null,
+    constructor(props) {
+        super(props);
+        this.handleUserName = this.handleUserName.bind(this);
+        this.handleTitle = this.handleTitle.bind(this);
+        this.handleBody = this.handleBody.bind(this);
+
     }
 
-    async handleUserName(event) {
+    handleUserName(event) {
         event.persist();
         this.setState({username: event.target.value});
     }
@@ -20,20 +22,23 @@ class AddPostsButton extends React.Component {
     handleBody(event){
         event.persist();
         this.setState({body: event.target.value})
+        console.log(this.state)
     }
 
     postArticle () {
-        fetch('https://jsonplaceholder.typicode.com/posts', {
+        const postMethod = {
             method: 'POST',
-            body: JSON.stringify({
-                username: this.state.username,
-                body: this.state.body,
-                title: this.state.title,
-            }),
             headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        })
+            'Content-type': 'application/json; charset=UTF-8'
+            },
+            body: JSON.stringify({
+                    username: this.state.username,
+                    body: this.state.body,
+                    title: this.state.title,
+            })
+        }
+        
+        fetch('https://jsonplaceholder.typicode.com/posts', postMethod)
         .then(response => response.json())
         .then(json => console.log(json))
     }

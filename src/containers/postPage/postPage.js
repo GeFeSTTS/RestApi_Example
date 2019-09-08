@@ -1,14 +1,19 @@
 import React from 'react';
+import './postPage.css';
 
 import {
-    Posts,
-    DetailsButton
+  UserPost, 
+  EditButton,
+  DeleteButton
 } from '../../components';
 
 const PostPage = () => (
   <div className="postPage">
-      <Posts />
-      <DetailsButton />
+      <UserPost />
+      <div className="buttons">
+        <EditButton />
+        <DeleteButton />
+      </div>
   </div>
 );
 
