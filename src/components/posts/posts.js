@@ -9,6 +9,7 @@ class Posts extends React.Component {
         this.state = {users: []};
         // this.redirect = this.redirect.bind(this);
 		this.headers = [
+			{ key: 'userId', label: 'User ID' },
 			{ key: 'title', label: 'Title' },
         ];
 	}
@@ -23,18 +24,6 @@ class Posts extends React.Component {
 				});
 			});
     }
-    
-    // async redirect () {
-    //     await this.props.history.push('/posts1');
-    //     await fetch('https://jsonplaceholder.typicode.com/posts?userId=1')
-    //     .then(response => {
-    //         return response.json();
-    //     }).then(result => {
-    //         this.setState({
-    //             users:result
-    //         });
-    //     });
-    // } 
     
 	render() {                            
 		return (
@@ -56,8 +45,8 @@ class Posts extends React.Component {
 						this.state.users.map(function(item, key) {             
 						return (
 								<tr key = {key}>
+								  <td>{item.userId}</td>
 								  <td>{item.title}</td>
-                                  {/* <button onClick={this.redirect}>Details</button> */}
 								</tr>
 							)
 						}, this)
